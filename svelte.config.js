@@ -1,8 +1,7 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-node';
 
 export default {
   kit: {
-    adapter: adapter(),
-    // other configurations (if necessary)
+    adapter: adapter()
   }
 };
