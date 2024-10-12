@@ -1,6 +1,5 @@
 <script lang="ts">
     import {lead} from "$lib/lead.svelte"
-	import { trusted } from "svelte/legacy";
 	import Adresse from "./Adresse.svelte";
 	import Comp from "./Comp.svelte";
     let {data}=$props()
@@ -70,7 +69,7 @@
  
 
 
-    const prod = trusted
+    const prod = true
 	const baseUrlS = prod ? 'https://api.car-ware.ch/' : 'http://127.0.0.1:3344/';
 
 
