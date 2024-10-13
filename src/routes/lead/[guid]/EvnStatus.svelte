@@ -60,18 +60,26 @@
 
 <div class="gridstatus2">
 	<div class="infobody">
-		<button class:evnstatuswaiting={status == 1} class:evnstatusgood={status == 2}>
-			{texte.beststatus[rawLead.sprache]}</button
-		>
-		<span class:waiting={status == 1} class:good={status == 2}>
-			<b>{texte[beststatus][rawLead.sprache]}</b>
+		<div class="gridbtn">
+<div>
+	<button class:evnstatuswaiting={status == 1} class:evnstatusgood={status == 2}>
+		{texte.beststatus[rawLead.sprache]}</button
+	>
+	<span class:waiting={status == 1} class:good={status == 2}>
+		<b>{texte[beststatus][rawLead.sprache]}</b>
+	</span>
+	&#160;&#160;&#160;&#160;&#160;&#160;{texte.bestantwort[rawLead.sprache]}
+
+</div>			
+<div>
+	{#if status == 2}
+	<span class="status">
+		<img on:click={toggleShowMail} style="cursor:pointer; height: 40px" src="images/BildMailKlick.png" alt="evn-logo" />
 		</span>
-		{#if status == 2}
-        <span class="status">
-        &#160;&#160;&#160;&#160;&#160;&#160;{texte.bestantwort[rawLead.sprache]}
-			<img on:click={toggleShowMail} style="cursor:pointer; height: 40px" src="images/BildMailKlick.png" alt="evn-logo" />
-            </span>
-		{/if}
+	{/if}
+
+</div>
+		</div>
 	</div>
     <div>&#160;</div>
 
@@ -92,13 +100,22 @@
 	</div>
 
 	<div class="infotop">
-		<u>{texte.statusvvb1[rawLead.sprache]}</u><br/>
-		{texte.statusvvb2[rawLead.sprache]}
+		<div class="gridbtn">
 
-        <a href="https://lead.car-ware.ch/pavServer/ngDok?type=vvb&guid={rawLead.guid}" target="dok">
-		<img style="cursor:pointer; height: 40px" src="images/PDFKlick.png" alt="evn-logo" />
-        </a><br/>
-		{texte.statusvvb3[rawLead.sprache]}
+			<div>
+				<u>{texte.statusvvb1[rawLead.sprache]}</u><br/>
+				{texte.statusvvb2[rawLead.sprache]}
+		
+				<br/>
+				{texte.statusvvb3[rawLead.sprache]}
+				
+			</div>
+			<div>
+				<a href="https://lead.car-ware.ch/pavServer/ngDok?type=vvb&guid={rawLead.guid}" target="dok">
+					<img style="cursor:pointer; height: 40px" src="images/PDFKlick.png" alt="evn-logo" />
+					</a>
+			</div>
+		</div>
 	</div>
 
 	<div class="infotop">
