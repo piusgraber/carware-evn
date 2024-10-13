@@ -562,17 +562,18 @@
 			{/each}
 		</select>
 		<input
+			class="kennzeichen"
 			type="text"
 			class:invalid={invalidKfz}
 			bind:value={fahrzeug.kennzeichen}
 			required="true"
 		/>
-		<span on:click={setNew} style="cursor: pointer">[{texte.neu[lang]}]</span>
+		<button on:click={setNew} class="mini">{texte.neu[lang]}</button>
 	</div>
 
 	<div>{texte.ivgrund[lang]}</div>
 	<div>
-		<select bind:value={fahrzeug.ivgrund} required="true">
+		<select class="ivgrund" bind:value={fahrzeug.ivgrund} required="true">
 			{#each ivgrund as art}
 				<option value={art.id}>{art.value}</option>
 			{/each}
@@ -686,14 +687,18 @@
 </div>
 
 <style>
+	select.ivgrund{
+		width: 240px;
+	}
 	.axa {
 		background-color: rgb(160, 160, 209);
 	}
 	.other {
 		background-color: rgb(151, 130, 172);
 	}
-	input[type='number'] {
-		width: 70px;
+
+	input.kennzeichen {
+		width: 6rem;
 	}
 	/*
     select:invalid,
@@ -728,10 +733,10 @@
 
 	.floatinginfo {
 		position: absolute;
-		left: 1170px;
+		left: 1150px;
 		top: 280px;
 		z-index: 5;
-		width: 190px;
+		width: 220px;
 		color: red;
 	}
 </style>

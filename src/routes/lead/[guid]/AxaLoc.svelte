@@ -1,7 +1,7 @@
 <script>
 	import { texte } from '$lib/texte.js';
 
-	let { choosenAgent = null, agentid = $bindable(0), sprache = null } = $props();
+	let { choosenAgent = null, agentid = $bindable(0), sprache = 'de' } = $props();
 	let srch = $state('');
 	$effect(() => {
 		if (srch.length >= 1) {
@@ -50,7 +50,7 @@
 	};
 
 	const doEdit = () => {
-		choosenAgent = null;
+		choosenAgent = 0;
 		agentid = 0;
 	};
 </script>
@@ -59,9 +59,8 @@
 	{#if choosenAgent}
 		<div>
 			<span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><b>{choosenAgent}</b>
-			<span>&#160;&#160;</span><span class="link" onclick={doEdit} onkeydown={() => {}} tabindex="0" role="button"
-				>&#160;[{texte.aendern[sprache]}]&#160;</span
-			>
+			<button  class="mini" on:click={doEdit}>{texte.aendern[sprache]}</button>
+
 		</div>
 	{:else}
 		<div class="grid">
@@ -70,7 +69,7 @@
 				{texte.sucheHlp[sprache]}<br />
 			</div>
 			<div class="r12">
-				<select class="broad" size="6" bind:value={agentid}>
+				<select class="broad" bind:value={agentid} size="6">
 					{#each axaAgents as agent}
 						<option value={agent.id}>{agent.ort}, {agent.anschrift} {agent.name}</option>
 					{/each}
@@ -98,7 +97,61 @@
 		grid-row: 1 / 3;
 		grid-column: 2 / 3;
 	}
-	select.broad {
-		width: 350px;
-	}
+
+
+
+
+/* Class for the select with limited visible items and scrollbar */
+select.broad {
+    appearance: none;
+    -webkit-appearance: none; /* For Safari/Chrome */
+    -moz-appearance: none;    /* For Firefox */
+    overflow-y: auto; /* Force the overflow property */
+    height: 100px;
+    width: 350px;
+}
+/* Optional: Style the scrollbar (for webkit browsers like Chrome and Safari) */
+.broad::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+}
+
+.broad::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar color */
+    border-radius: 10px;
+}
+
+.scrollable-list {
+  width: 250px;         /* Width of the container */
+  max-height: 150px;    /* Limit the height of the container */
+  overflow-y: auto;     /* Enable vertical scrolling */
+  border: 1px solid #ccc; /* Optional: border for visibility */
+  padding: 0;
+  margin: 0;
+}
+
+.scrollable-list ul {
+  list-style-type: none; /* Remove bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.scrollable-list li {
+  padding: 8px;          /* Space inside list items */
+  border-bottom: 1px solid #ddd; /* Optional: border between items */
+}
+
+/* Optional: Style the scrollbar (for webkit browsers like Chrome and Safari) */
+.scrollable-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.scrollable-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 </style>

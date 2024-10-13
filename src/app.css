@@ -20,6 +20,26 @@ div, input, textarea, select {
     font-size: 11pt;
 }
 
+textarea {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    height: 70px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none; /* Prevents resizing if not desired */
+}
+
+textarea:hover {
+    border-color: #888;
+}
+
+textarea:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
 select:invalid, input:invalid,   input.invalid  {
     background-color: #277FE8;
     color: #ffffffef;
@@ -36,13 +56,6 @@ select:invalid, input:invalid,   input.invalid  {
     height: 50px;
 }
 
-input[type='date'] {
-    font-family: Arial, Helvetica, sans-serif;
-}
-textarea {
-    height:70px;
-    font-family: Arial, Helvetica, sans-serif;
-}
 .header {
     padding: 9px;
     font-size: 2rem;
@@ -74,6 +87,8 @@ textarea {
     width: 300px;
 }
 
+
+
 button {
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.26);
@@ -81,6 +96,58 @@ button {
     padding: 3pt 12pt;
     color: #ffffff;
     background-color: #ff9933;
+}
+
+
+
+button.mini,
+input[type="text"],
+select {
+    font-family: Arial, sans-serif;
+    font-size: 11pt;
+    height: 22px;
+    padding: 0 8px; /* Adjust padding to maintain the height */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    color: black;
+}
+
+button.mini.invalid {
+    background-color: #277FE8;
+    color: #ffffff;
+}
+
+input[type='number'] {
+    width: 70px;
+}
+
+input[type='date'] {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover,
+input[type="text"]:hover,
+select:hover {
+    border-color: #888;
+}
+
+button:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #f0f0f0;
+    cursor: pointer;
+    line-height: 22px; /* Ensure text is vertically centered */
+}
+
+button:hover {
+    background-color: #e0e0e0;
 }
 
 button.showfz {

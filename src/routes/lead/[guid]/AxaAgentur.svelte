@@ -177,6 +177,7 @@ let infolink = "https://car-ware.ch/info-agenturauswahl_" + sprache;
     {/if}
     <div>&#160;</div>
 </div>
+{JSON.stringify(verkaeuferAxaAgent)}
 
 <style>
 

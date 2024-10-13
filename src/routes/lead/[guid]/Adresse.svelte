@@ -16,7 +16,6 @@
 		{ id: 3, value: texte.firma[lang] }
 	];
 
-
 	let plzIsValid = $state(true);
 	const anredeValid = $derived(!!adresse.anredeid);
 	const nameValid = $derived(!!(adresse.name?.length >= 5));
@@ -29,49 +28,55 @@
 
 	$effect(() => {
 		adrValid = anredeValid && ortValid && adresseValid && nameValid && plzFormatValid && plzValid;
-		$inspect('adrValid', adrValid)
+		$inspect('adrValid', adrValid);
 	});
 
-	$effect(()=>{
-		adresse.anrede = adresse.anredeid ? anreden[adresse.anredeid].value : '??'
-	})
+	$effect(() => {
+		adresse.anrede = adresse.anredeid ? anreden[adresse.anredeid].value : '??';
+	});
 
 	// Prüfen ob das Format ok ist
 	let plzFormatValid = $derived(!!(adresse.plz?.length == 4));
 </script>
 
 <div>
+	<div class="gridevn2">
+		<div class="span-div">{title}</div>
+		<div>{texte.anrede[lang]}</div>
 
-<div class="gridevn2">
-	<div class="span-div" >{title}</div>
-	<div>{texte.anrede[lang]}</div>
-
-	<div>
-		<select bind:value={adresse.anredeid} class:invalid={!anredeValid}>
-			{#each anreden as art}
-				<option value={art.id}>{art.value}</option>
-			{/each}
-		</select>
+		<div>
+			<select bind:value={adresse.anredeid} class:invalid={!anredeValid}>
+				{#each anreden as art}
+					<option value={art.id}>{art.value}</option>
+				{/each}
+			</select>
+		</div>
+		<div>{texte.name[lang]}</div>
+		<div>
+			<input
+				type="text"
+				class:invalid={!nameValid}
+				class="adresse"
+				bind:value={adresse.name}
+				required="true"
+			/>
+		</div>
+		<div>{texte.adresse[lang]}</div>
+		<div>
+			<input
+				type="text"
+				class:invalid={!adresseValid}
+				class="adresse"
+				bind:value={adresse.adresse}
+				required="true"
+			/>
+		</div>
+		<div>{texte.plzort[lang]}</div>
+		<div>
+			<input type="text" class:invalid={!plzValid} class="plz" bind:value={adresse.plz} />
+			<input type="text" class:invalid={!ortValid} bind:value={adresse.ort} />
+		</div>
 	</div>
-	<div>{texte.name[lang]}</div>
-	<div>
-		<input class:invalid={!nameValid} class="adresse" bind:value={adresse.name} required="true" />
-	</div>
-	<div>{texte.adresse[lang]}</div>
-	<div>
-		<input
-			class:invalid={!adresseValid}
-			class="adresse"
-			bind:value={adresse.adresse}
-			required="true"
-		/>
-	</div>
-	<div>{texte.plzort[lang]}</div>
-	<div>
-		<input class:invalid={!plzValid} class="plz" bind:value={adresse.plz} />
-		<input class:invalid={!ortValid} bind:value={adresse.ort} />
-	</div>
-</div>
 </div>
 
 <!--
@@ -84,7 +89,7 @@
 		border: 1pt solid rgb(99, 99, 99);
 	}
 
-/*	
+	/*	
 	div {
 		line-height: 1.5rem;
 	}
@@ -110,8 +115,8 @@
 		grid-row-gap: 0px;
 	}
 	.span-div {
-    grid-column: span 2; /* This makes the div span across 2 columns */
-  }
+		grid-column: span 2; /* This makes the div span across 2 columns */
+	}
 	.plz {
 		width: 60px;
 	}

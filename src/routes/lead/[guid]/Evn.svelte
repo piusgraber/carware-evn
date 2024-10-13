@@ -488,9 +488,8 @@
 				{kontakt.telefon},
 				{kontakt.email}
 			</b>
-			<span class="link" class:invalid={invalidTel} on:click={doEditKontakt}
-				>&#160;[{texte.aendern[lang]}]&#160;
-			</span>
+			<button  class:invalid={invalidTel} on:click={doEditKontakt} class="mini">{texte.aendern[lang]}</button>
+
 		{:else}
 			<div class="r14">&#160;</div>
 			<div class="r14">
@@ -523,9 +522,9 @@
 					<div>
 						<input class="long" type="text" bind:value={kontakt.email} />
 						<span>&#160;&#160;&#160;</span>
-						<span class="link invalid" on:click={doSaveKontakt}
-							>[{texte.kontaktspeichern[lang]}]</span
-						>
+						<button class="mini invalid" on:click={doSaveKontakt}>
+							{texte.kontaktspeichern[lang]}
+						</button>
 					</div>
 					<div></div>
 					<div></div>
