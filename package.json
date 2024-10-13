@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-node": "^5.2.6"
+		"@sveltejs/adapter-node": "^5.2.6",
+		"amplify-adapter": "^0.1.2"
 	}
 }
