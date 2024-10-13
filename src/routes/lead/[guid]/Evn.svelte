@@ -98,7 +98,7 @@
 		if (rawLead) {
 			isValid = isValid && (rawLead.nationalitaet || (rawLead.halter && rawLead.halter.anredeid==3));
 			isValid = isValid && (rawLead.geburtstag ||	(rawLead.halter && rawLead.halter.anredeid == 3) ||	rawLead.geburtstagunbekannt);
-			isValid = isValid && rawLead.user_telefon.length >= 10;
+			isValid = isValid && rawLead.user_telefon?.length >= 10;
 			if (rawLead.garage_idkey == 'AUTOKUNZ') {
 				isValid = isValid && disponentid != '';
 			}
@@ -255,6 +255,7 @@
 		if (disponentid) {
 			let dsp = disponenten.filter((d) => d.id == disponentid);
 			let dspn = dsp[0];
+			$inspect(dspn)
 			kontakt.email = dspn.email;
 			kontakt.anredeid = dspn.anredeid;
 			kontakt.nachname = dspn.nachname;

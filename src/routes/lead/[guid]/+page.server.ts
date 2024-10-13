@@ -186,7 +186,7 @@ export const load: PageServerLoad = async ({ params }) => {
             rawLead.standort = standort
 
         }
-        console.log('rawLead', rawLead)
+//        console.log('rawLead', rawLead)
         return rawLead;
     } else {
         return {}

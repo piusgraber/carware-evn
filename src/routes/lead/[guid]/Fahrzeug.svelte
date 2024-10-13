@@ -436,7 +436,7 @@
 		}
 	});
 
-	let verkaeuferAxaAgent = $state({ choice: 0 });
+	let verkaeuferAxaAgent = $state({ choice: 0, temp:0 });
 	let sitzplatzSel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 </script>
 
@@ -461,11 +461,7 @@
 		{#if short}
 			<button class="showfz" on:click={toggleSL}>{texte.alle[lang]}</button>
 		{:else}
-			<!--
-            <button class="small" on:click={toggleSL}
-                >{texte.weniger[lang]}</button
-            >
--->
+			<button class="showfz" on:click={toggleSL}>{texte.weniger[lang]}</button>
 		{/if}
 	</div>
 </div>

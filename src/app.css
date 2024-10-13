@@ -102,6 +102,7 @@ button {
 
 button.mini,
 input[type="text"],
+input[type="date"],
 select {
     font-family: Arial, sans-serif;
     font-size: 11pt;
